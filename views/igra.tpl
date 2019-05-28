@@ -1,14 +1,13 @@
+% rebase('base.tpl')
 % import model
-<!DOCTYPE html>
-<html>
-
-<head>
-  <title>Vislice</title>
-</head>
-
-<body>
 
   <table>
+
+      <tr>
+          <td>
+            <h3> ID je {{ id_igre }} </h3>
+          </td>
+        </tr>
 
     <tr>
       <td>
@@ -25,19 +24,17 @@
       </td>
     </tr>
 
-    % if poskus ==model.ZMAGA or poskus == model.PORAZ:
-    <form action="/igra/" method="post">
+    % if poskus == model.ZMAGA or poskus == model.PORAZ:
+    <form action="/nova_igra/" method="post">
       <button type="submit">Nova igra</button>
     </form>
 
     % else:
     <tr>
-        <form action="/igra/{{id_igre}}" method ="post">
+        <form action="/igra/" method ="post">
            <input type="text" name="poskus">
           <input type="submit" value="Ugibaj">
         </form>
     </tr>
     % end
   </table>
-</body>
-</html>
